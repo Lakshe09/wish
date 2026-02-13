@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>For my husband 💖</title>
     <style>
         * {
@@ -94,6 +94,7 @@
             letter-spacing: 1px;
             font-family: 'Brush Script MT', cursive;
             line-height: 1.2;
+            word-break: break-word;
         }
 
         .question {
@@ -114,6 +115,7 @@
             border-radius: 50px;
             box-shadow: 0 5px 0 #ffa5b9;
             font-size: clamp(1.6rem, 4vw, 2.2rem);
+            width: fit-content;
         }
 
         .button-panel {
@@ -142,6 +144,7 @@
             border: 2px solid #fff;
             transform: translateY(0);
             min-width: 140px;
+            width: auto;
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -202,37 +205,46 @@
             font-size: clamp(2rem, 6vw, 3rem);
             line-height: 1;
             filter: drop-shadow(2px 4px 6px hotpink);
+            margin: 10px 0;
         }
 
         .love-note {
             font-size: clamp(1.2rem, 3.5vw, 1.6rem);
             background: #ffeef2;
-            padding: 15px;
+            padding: 20px;
             border-radius: 40px 10px 40px 10px;
             color: #c14470;
             font-weight: 500;
             border: 2px solid white;
-            margin-top: 20px;
+            margin: 20px 0;
+            word-wrap: break-word;
+            line-height: 1.6;
         }
 
         .hotel-detail {
             background: #ffb6c180;
             border-radius: 40px;
-            padding: 10px 18px;
+            padding: 12px 25px;
             display: inline-block;
-            font-size: clamp(1.4rem, 4vw, 1.9rem);
+            font-size: clamp(1.5rem, 4.5vw, 2rem);
             font-weight: 600;
-            margin: 15px 0 5px;
+            margin: 15px 0 10px;
             color: #872341;
+            word-wrap: break-word;
+            max-width: 100%;
+            border: 2px solid #ffd9e8;
         }
 
+        /* signature */
         .signature {
-            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            font-size: clamp(1.5rem, 4.5vw, 2rem);
             color: #d96c8c;
-            margin-top: 20px;
+            margin-top: 25px;
             border-top: 2px dashed #fbaac3;
             padding-top: 20px;
             font-style: italic;
+            word-wrap: break-word;
+            font-family: 'Brush Script MT', cursive;
         }
 
         footer {
@@ -242,50 +254,154 @@
             opacity: 0.9;
         }
 
+        /* image responsive */
         .message-box img {
             max-width: 100%;
             height: auto;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            margin: 15px 0;
+            border-radius: 30px;
+            box-shadow: 0 15px 30px rgba(233, 30, 99, 0.3);
+            margin: 20px 0;
+            object-fit: cover;
+            border: 4px solid white;
+            transition: transform 0.3s ease;
         }
 
+        .message-box img:hover {
+            transform: scale(1.02);
+        }
+
+        .photo-frame {
+            background: white;
+            padding: 10px;
+            border-radius: 40px;
+            margin: 15px 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* small extra style for hidden class */
+        .btn-no {
+            cursor: default;
+        }
+
+        /* tablet and mobile specific adjustments */
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                align-items: flex-start;
+                min-height: 100vh;
+            }
+
             .valentine-card {
                 padding: 1.5rem 1rem;
+                margin: 15px auto;
+                border-radius: 40px 15px 40px 15px;
             }
-            
+
+            .button-panel {
+                gap: 15px;
+                margin: 20px 0;
+            }
+
             .btn {
                 padding: 12px 25px;
                 min-width: 120px;
-                box-shadow: 0 8px 0 #9e3e5a;
+                box-shadow: 0 8px 0 #9e3e5a, 0 8px 15px rgba(0,0,0,0.1);
             }
-            
+
             .btn-yes {
                 box-shadow: 0 8px 0 #b24363;
             }
-            
+
             .btn-no {
                 box-shadow: 0 8px 0 #a0a0a0;
             }
+
+            .btn:active {
+                transform: translateY(4px);
+                box-shadow: 0 4px 0 #9e3e5a;
+            }
+
+            .btn-yes:active {
+                box-shadow: 0 4px 0 #b24363;
+            }
+
+            .btn-no:active {
+                box-shadow: 0 4px 0 #7e7e7e;
+            }
         }
 
+        /* small mobile devices */
         @media (max-width: 480px) {
+            .valentine-card {
+                padding: 1rem 0.8rem;
+            }
+
             .button-panel {
                 flex-direction: column;
                 gap: 15px;
             }
-            
+
             .btn {
                 width: 80%;
                 max-width: 250px;
+                font-size: 1.6rem;
+                padding: 15px 20px;
             }
+
+            .question span {
+                padding: 8px 15px;
+            }
+
+            .heart-balloon {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* landscape orientation on mobile */
+        @media (max-height: 600px) and (orientation: landscape) {
+            body {
+                align-items: center;
+                padding: 20px;
+            }
+
+            .valentine-card {
+                padding: 1rem;
+            }
+
+            h1 {
+                margin-bottom: 10px;
+            }
+
+            .question {
+                margin-bottom: 15px;
+            }
+
+            .button-panel {
+                margin: 10px 0;
+            }
+
+            .message-box img {
+                max-height: 150px;
+                width: auto;
+            }
+        }
+
+        /* ensure no highlight on tap */
+        .btn {
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
+        }
+
+        .btn:focus {
+            outline: none;
         }
     </style>
 </head>
 <body>
+    <!-- floating heart balloons -->
     <div class="balloon-container" id="balloonContainer"></div>
 
+    <!-- main interactive card -->
     <div class="valentine-card">
         <h1>💝 To my amazing husband 💝</h1>
         <div class="question">
@@ -297,107 +413,231 @@
             <button class="btn btn-no" id="noBtn">No 💔</button>
         </div>
 
+        <!-- hidden message that appears after clicking YES -->
         <div id="surpriseMessage" class="message-box hidden-message">
-            <div class="heart-symbol">❤️❤️❤️</div>
-            <div style="font-size: clamp(1.8rem, 5vw, 2.5rem);">🥰 I knew you'd say YES! 🥰</div>
-            <div class="hotel-detail">✨ The Love of my Life ✨</div>
-            <div style="font-size: clamp(1.5rem, 4vw, 2rem);">My Man 💑</div>
+            <div class="heart-symbol">❤️ ❤️ ❤️</div>
+            <div style="font-size: clamp(1.8rem, 5vw, 2.5rem); color: #d43f6b; font-weight: bold;">
+                🥰 I know you will say YES! 🥰
+            </div>
+            
+            <div class="hotel-detail">
+                ✨ The Love of my Life ✨
+            </div>
+            
+            <div style="font-size: clamp(1.5rem, 4vw, 2rem); color: #b23b5c;">
+                My Man 💑
+            </div>
+            
             <div class="love-note">
-                🌹 My love, every day with you is Valentine's. <br>
-                Even though miles keep us apart, my heart lives with you every second.
-                Distance only makes my love for you grow stronger and deeper.
-                I miss your voice, your smile, and the warmth of your hugs every day.
-                No matter how far you are, you will always be my forever and my home.<br>
+                🌹 My love, every day with you is Valentine's. <br><br>
+                Even though miles keep us apart, my heart lives with you every second.<br>
+                Distance only makes my love for you grow stronger and deeper.<br>
+                I miss your voice, your smile, and the warmth of your hugs every day.<br>
+                No matter how far you are, you will always be my forever and my home.<br><br>
                 I promise to love you more every single day. 💕
             </div>
             
-            <div>
-                <img src="image.jpeg" alt="Our precious memory" width="300" height="400" 
-                     onerror="this.style.display='none'">
+            <!-- Your beautiful image -->
+            <div class="photo-frame">
+                <img src="image.jpeg" alt="My precious memory with you" width="300" height="400">
             </div>
+            
             <div class="heart-symbol">💞 🫶 💞</div>
-            <div class="signature">forever yours,<br>your wife 💋</div>
+            
+            <div class="signature">
+                forever yours,<br>
+                your wife 💋
+            </div>
         </div>
 
         <footer>💕 click YES, my darling 💕</footer>
     </div>
 
     <script>
-        const container = document.getElementById('balloonContainer');
-        const heartSymbols = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🩷', '💖', '💗', '💓', '💞', '🫶', '❤️‍🔥', '❣️', '💕', '💘', '💝'];
+        (function() {
+            // ---------- floating hearts balloon generator ----------
+            const container = document.getElementById('balloonContainer');
+            const heartSymbols = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🩷', '💖', '💗', '💓', '💞', '🫶', '❤️‍🔥', '❣️', '💕', '💘', '💝'];
 
-        function createBalloon() {
-            const balloon = document.createElement('div');
-            balloon.className = 'heart-balloon';
-            balloon.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-            balloon.style.left = Math.random() * 100 + '%';
-            balloon.style.top = Math.random() * 100 + '%';
-            container.appendChild(balloon);
-            
-            if (container.children.length > 45) {
-                container.removeChild(container.children[0]);
-            }
-        }
+            function createBalloon() {
+                const balloon = document.createElement('div');
+                balloon.className = 'heart-balloon';
 
-        for (let i = 0; i < 30; i++) createBalloon();
-        setInterval(createBalloon, 2000);
+                // random heart from array
+                const randomHeart = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                balloon.textContent = randomHeart;
 
-        const noBtn = document.getElementById('noBtn');
-        const yesBtn = document.getElementById('yesBtn');
-        const buttonPanel = document.getElementById('buttonPanel');
-        const surpriseMsg = document.getElementById('surpriseMessage');
+                // random size between 1.8rem and 4rem (smaller on mobile)
+                const isMobile = window.innerWidth <= 480;
+                const minSize = isMobile ? 1.2 : 1.8;
+                const maxSize = isMobile ? 2.5 : 4;
+                const size = minSize + Math.random() * (maxSize - minSize);
+                balloon.style.fontSize = size + 'rem';
 
-        function moveNoButton() {
-            const panelRect = buttonPanel.getBoundingClientRect();
-            const btnRect = noBtn.getBoundingClientRect();
-            const maxX = Math.max(panelRect.width - btnRect.width - 10, 20);
-            const maxY = Math.max(panelRect.height - btnRect.height - 10, 20);
-            
-            let currentX = 0, currentY = 0;
-            if (noBtn.style.transform) {
-                const match = noBtn.style.transform.match(/translate\(([-\d.]+)px,\s*([-\d.]+)px\)/);
-                if (match) {
-                    currentX = parseFloat(match[1]);
-                    currentY = parseFloat(match[2]);
+                // random starting position (left, top) within viewport
+                balloon.style.left = Math.random() * 100 + '%';
+                balloon.style.top = Math.random() * 100 + '%';
+
+                // random animation duration between 14s and 28s for variety
+                const duration = 14 + Math.random() * 14;
+                balloon.style.animation = `floatAround ${duration}s infinite alternate ease-in-out`;
+
+                // random delay so they don't all move together
+                balloon.style.animationDelay = (Math.random() * 5) + 's';
+
+                // slight random opacity
+                balloon.style.opacity = 0.5 + Math.random() * 0.4;
+
+                container.appendChild(balloon);
+
+                // remove old balloons if too many (keep around 40 max)
+                if (container.children.length > 45) {
+                    container.removeChild(container.children[0]);
                 }
             }
 
-            const stepX = (Math.random() > 0.5 ? 1 : -1) * (30 + Math.random() * 60);
-            const stepY = (Math.random() > 0.5 ? 1 : -1) * (30 + Math.random() * 50);
-
-            let newX = currentX + stepX;
-            let newY = currentY + stepY;
-
-            newX = Math.min(Math.max(newX, -maxX/2), maxX/2);
-            newY = Math.min(Math.max(newY, -maxY/2), maxY/2);
-
-            noBtn.style.transform = `translate(${newX}px, ${newY}px)`;
-            noBtn.style.transition = 'transform 0.15s ease';
-        }
-
-        noBtn.addEventListener('mouseenter', moveNoButton);
-        noBtn.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            moveNoButton();
-        });
-
-        yesBtn.addEventListener('click', () => {
-            buttonPanel.style.display = 'none';
-            document.querySelector('.question').style.display = 'none';
-            document.querySelector('footer').style.display = 'none';
-            document.querySelector('h1').innerHTML = '💖 My dearest husband 💖';
-            surpriseMsg.classList.remove('hidden-message');
-            surpriseMsg.classList.add('visible-message');
-            
-            for (let i = 0; i < 12; i++) {
-                setTimeout(createBalloon, i * 100);
+            // initial balloons - adjust count based on screen size
+            const balloonCount = window.innerWidth <= 480 ? 20 : 30;
+            for (let i = 0; i < balloonCount; i++) {
+                createBalloon();
             }
-        });
 
-        setInterval(() => {
-            yesBtn.style.transform = 'scale(1.05)';
-            setTimeout(() => yesBtn.style.transform = 'scale(1)', 150);
-        }, 800);
+            // add new balloons every 2 seconds to keep motion fresh
+            setInterval(createBalloon, 2000);
+
+            // ---------- moving "No" button logic ----------
+            const noBtn = document.getElementById('noBtn');
+            const yesBtn = document.getElementById('yesBtn');
+            const buttonPanel = document.getElementById('buttonPanel');
+            const surpriseMsg = document.getElementById('surpriseMessage');
+
+            // function to make the No button escape
+            function moveNoButton() {
+                // get viewport / panel boundaries relative to button
+                const panelRect = buttonPanel.getBoundingClientRect();
+                const btnRect = noBtn.getBoundingClientRect();
+
+                // maximum offset so button stays inside panel (with some padding)
+                const maxX = Math.max(panelRect.width - btnRect.width - 10, 20);
+                const maxY = Math.max(panelRect.height - btnRect.height - 10, 20);
+
+                // current relative position inside panel (default 0 if not set)
+                let currentX = 0, currentY = 0;
+                if (noBtn.style.transform) {
+                    const match = noBtn.style.transform.match(/translate\(([-\d.]+)px,\s*([-\d.]+)px\)/);
+                    if (match) {
+                        currentX = parseFloat(match[1]);
+                        currentY = parseFloat(match[2]);
+                    }
+                }
+
+                // random step - smaller steps on mobile for better visibility
+                const stepMultiplier = window.innerWidth <= 480 ? 20 : 40;
+                const stepX = (Math.random() > 0.5 ? 1 : -1) * (stepMultiplier + Math.random() * 40);
+                const stepY = (Math.random() > 0.5 ? 1 : -1) * (stepMultiplier + Math.random() * 30);
+
+                let newX = currentX + stepX;
+                let newY = currentY + stepY;
+
+                // clamp to panel edges
+                newX = Math.min(Math.max(newX, -maxX/2), maxX/2);
+                newY = Math.min(Math.max(newY, -maxY/2), maxY/2);
+
+                // apply transform (smooth)
+                noBtn.style.transform = `translate(${newX}px, ${newY}px)`;
+                noBtn.style.transition = 'transform 0.15s ease';
+            }
+
+            // move No button on hover / touch with debounce for mobile
+            let moveTimeout;
+            function debouncedMove() {
+                if (moveTimeout) clearTimeout(moveTimeout);
+                moveTimeout = setTimeout(moveNoButton, 10);
+            }
+
+            noBtn.addEventListener('mouseenter', debouncedMove);
+            noBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                debouncedMove();
+            }, { passive: false });
+
+            // Also move when "No" button is clicked
+            noBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                debouncedMove();
+                // extra jitter: move again after tiny delay
+                setTimeout(debouncedMove, 30);
+                setTimeout(debouncedMove, 70);
+            });
+
+            // ---------- YES button action ----------
+            yesBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // hide the button panel and question
+                buttonPanel.style.display = 'none';
+                document.querySelector('.question').style.display = 'none';
+                document.querySelector('footer').style.display = 'none';
+                
+                // change heading with responsive font
+                document.querySelector('h1').innerHTML = '💖 My dearest husband 💖';
+
+                // show surprise message
+                surpriseMsg.classList.remove('hidden-message');
+                surpriseMsg.classList.add('visible-message');
+
+                // also add some extra hearts to container to celebrate (adjust count for mobile)
+                const extraBalloons = window.innerWidth <= 480 ? 8 : 12;
+                for (let i = 0; i < extraBalloons; i++) {
+                    setTimeout(createBalloon, i * 100);
+                }
+
+                // scroll to show full message on mobile
+                setTimeout(() => {
+                    surpriseMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            });
+
+            // extra move on any attempt to touch No on mobile
+            noBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                debouncedMove();
+            }, { passive: false });
+
+            // for desktop, also move when mouse moves over panel near button
+            buttonPanel.addEventListener('mousemove', (e) => {
+                // only on desktop and randomly
+                if (window.innerWidth > 768 && Math.random() < 0.02) {
+                    debouncedMove();
+                }
+            });
+
+            // ensure no click goes through on No button
+            noBtn.addEventListener('click', (e) => e.preventDefault());
+
+            // keep Yes button always in place with heartbeat effect
+            setInterval(() => {
+                yesBtn.style.transform = 'scale(1.05)';
+                setTimeout(() => yesBtn.style.transform = 'scale(1)', 150);
+            }, 800);
+
+            // handle resize events to adjust balloon count if needed
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    // clear and regenerate balloons for new screen size
+                    while (container.firstChild) {
+                        container.removeChild(container.firstChild);
+                    }
+                    const newCount = window.innerWidth <= 480 ? 20 : 30;
+                    for (let i = 0; i < newCount; i++) {
+                        createBalloon();
+                    }
+                }, 500);
+            });
+        })();
     </script>
 </body>
 </html>
